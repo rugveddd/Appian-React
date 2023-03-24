@@ -10,6 +10,7 @@ const EmployeeDetails = (props) => {
           "https://paix.appian.community/suite/webapi/appianEndpoint",
           {
             method: 'GET',
+            mode: 'no-cors',
             headers: {
               Authorization:
                 "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZGI5MjJjYy02ODU4LTQxMDMtODYwZC0yN2YxMGY3MmFmNWUifQ.N_shBX0Pa5VIeJGIU4Ybz6ykFCk4Crlw7nfCEzxKAr8",
