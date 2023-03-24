@@ -13,7 +13,7 @@ const EmployeeDetails = (props) => {
               Authorization:
                 "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZGI5MjJjYy02ODU4LTQxMDMtODYwZC0yN2YxMGY3MmFmNWUifQ.N_shBX0Pa5VIeJGIU4Ybz6ykFCk4Crlw7nfCEzxKAr8",
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              
             },
           }
         );
