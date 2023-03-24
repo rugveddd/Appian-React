@@ -15,6 +15,7 @@ function App() {
       <p> this is my react app </p>
       <EmployeeList onSelect={onSelectingEmployee}></EmployeeList>
       <EmployeeDetails selectedEmployee={employee}></EmployeeDetails>
+<div> this is new change </div>
     </div>
   );
 }
