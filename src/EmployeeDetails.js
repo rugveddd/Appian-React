@@ -1,42 +1,29 @@
 import { useEffect, useState } from "react";
 
 const EmployeeDetails = (props) => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://paix.appian.community/suite/webapi/appianEndpoint",
-          {
-            method: 'GET',
-            mode: 'no-cors',
-            headers: {
-              Authorization:
-                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZGI5MjJjYy02ODU4LTQxMDMtODYwZC0yN2YxMGY3MmFmNWUifQ.N_shBX0Pa5VIeJGIU4Ybz6ykFCk4Crlw7nfCEzxKAr8",
-              "Content-Type": "application/json",
-              'Access-Control-Request-Method': 'GET',
-              "Access-Control-Allow-Origin": 'https://papaya-strudel-5d6793.netlify.app',
-              'Access-Control-Request-Headers': 'Authorization, Content-Type'
-              
-              
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const json = await response.json();
-        setData(json);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZGI5MjJjYy02ODU4LTQxMDMtODYwZC0yN2YxMGY3MmFmNWUifQ.N_shBX0Pa5VIeJGIU4Ybz6ykFCk4Crlw7nfCEzxKAr8';
+  const apiUrl = 'https://paix.appian.community/suite/webapi/appianEndpoint';
+   useEffect(() => {
     fetchData();
   }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        }
+      });
+      const responseData = await response.json();
+      setData(responseData);
+    } catch (error) {
+      setError(error.message);
+      console.log(error)
+    }
+  };
 
   return (
     <div>
