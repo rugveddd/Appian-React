@@ -5,9 +5,7 @@ const EmployeeDetails = (props) => {
   const [error, setError] = useState(null);
   const apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZGI5MjJjYy02ODU4LTQxMDMtODYwZC0yN2YxMGY3MmFmNWUifQ.N_shBX0Pa5VIeJGIU4Ybz6ykFCk4Crlw7nfCEzxKAr8';
   const apiUrl = 'https://paix.appian.community/suite/webapi/appianEndpoint';
-   useEffect(() => {
-    fetchData();
-  }, []);
+  
   const fetchData = async () => {
     try {
       const response = await fetch(apiUrl, {
@@ -24,6 +22,9 @@ const EmployeeDetails = (props) => {
       console.log(error)
     }
   };
+   useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
